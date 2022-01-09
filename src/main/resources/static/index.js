@@ -6,7 +6,7 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     }
 
     $scope.loadProducts = function (pageIndex = 1) {
-        $http({
+        $http ({
             url: contextPath + '/products',
             method: 'GET',
             params: {
@@ -20,7 +20,7 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     };
 
     $scope.addToCart = function (productId) {
-        $http.get('http://localhost:8189/apphttp://localhost:8189/app/api/v1/carts/add/' + productId)
+        $http.get('http://localhost:8189/app/api/v1/carts/add/' + productId)
             .then(function (response) {
                 $scope.loadCart();
             });
@@ -83,6 +83,30 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
                 alert('MY NAME IS: ' + response.data.username);
             }, function errorCallback(response) {
                 alert('UNAUTHORIZED');
+            });
+    };
+
+    $scope.createOrder = function () {
+        $http({
+            url: contextPath + '/orders',
+            method: 'POST',
+            params: {
+                address: $scope.orderAddress,
+                phone: $scope.orderPhone,
+            }
+        }).then(function successCallback(response) {
+                alert('Заказ с номером ' + response.data.id + ' успешно сформирован');
+            }, function errorCallback(response) {
+                alert('Для формирования Заказа авторизируйтесь');
+            });
+    };
+
+
+
+    $scope.loadOrder = function () {
+        $http.get('http://localhost:8189/app/api/v1/orders')
+            .then(function (response) {
+                $scope.Order = response.data;
             });
     }
 

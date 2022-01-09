@@ -104,11 +104,36 @@
     </table>
     <p>
         <button class="btn btn-secondary" ng-click="clearCart()">Очистить корзину</button>
-        <button class="btn btn-primary" ng-click="createOrder()">Оформить заказ</button>
     </p>
     <p>
         <button class="btn btn-danger" ng-click="showCurrentUserInfo()">Обо мне</button>
     </p>
+
+    <h3>Данные для заказа</h3>
+    <form class="allign-middle" ng-submit="createOrder()">
+<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--            <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--                <ul class="navbar-nav">-->
+<!--                    <li class="nav-item" ng-show="!isUserLoggedIn()">-->
+<!--                        <form class="align-middle" ng-submit="tryToAuth()">-->
+                            <div class="input-group input-group-sm" style="padding: 4px;">
+                                <input required id="navPhone" class="form-control" ng-model="orderPhone" placeholder="ваш телефон" type="text"
+                                       aria-describedby="inputGroup-sizing-sm" style="margin-left: 10px;">
+
+                                <input required id="navAddress" class="form-control" ng-model="orderAddress" placeholder="ваш адрес" type="text"
+                                       aria-describedby="inputGroup-sizing-sm" style="margin-left: 10px;">
+
+                                <button type="submit" id="navCreateOrder" class="btn btn-outline-warning btn-sm"
+                                        style="margin-left: 10px;" type="submit">Оформить заказ
+                                </button>
+                            </div>
+<!--                        </form>-->
+<!--                    </li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </nav>-->
+    </form>
+</div>
 </div>
 
 </body>
