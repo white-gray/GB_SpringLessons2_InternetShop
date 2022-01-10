@@ -23,6 +23,7 @@ public class OrderController {
     public ResponseEntity<?> createOrder(@RequestParam String phone,
                                          @RequestParam String address,
                                          Principal principal) {
+System.out.println("principal = " + principal);
           return orderService.createOrder(phone, address, principal);
     }
 }

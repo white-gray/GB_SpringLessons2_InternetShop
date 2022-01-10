@@ -20,21 +20,21 @@ angular.module('app', ['ngStorage']).controller('indexController', function ($sc
     };
 
     $scope.addToCart = function (productId) {
-        $http.get('http://localhost:8189/app/api/v1/carts/add/' + productId)
+        $http.get('http://localhost:8189/app/api/v1/cart/add/' + productId)
             .then(function (response) {
                 $scope.loadCart();
             });
     }
 
     $scope.clearCart = function () {
-        $http.get('http://localhost:8189/app/api/v1/carts/clear')
+        $http.get('http://localhost:8189/app/api/v1/cart/clear')
             .then(function (response) {
                 $scope.loadCart();
             });
     }
 
     $scope.loadCart = function () {
-        $http.get('http://localhost:8189/app/api/v1/carts')
+        $http.get('http://localhost:8189/app/api/v1/cart')
             .then(function (response) {
                 $scope.Cart = response.data;
             });
