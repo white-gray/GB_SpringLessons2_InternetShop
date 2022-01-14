@@ -1,4 +1,4 @@
-angular.module('market-front').controller('storeController', function ($scope, $http, $location, $localStorage) {
+angular.module('market-front').controller('storeController', function ($scope, $http) {
     const contextPath = 'http://localhost:8189/app/';
 
     $scope.loadProducts = function (pageIndex = 1) {
@@ -21,13 +21,5 @@ angular.module('market-front').controller('storeController', function ($scope, $
             });
     }
 
-    $scope.loadOrders = function () {
-        $http.get(contextPath + 'api/v1/orders')
-            .then(function (response) {
-                $scope.MyOrders = response.data;
-            });
-    }
-
     $scope.loadProducts();
-    $scope.loadOrders();
 });

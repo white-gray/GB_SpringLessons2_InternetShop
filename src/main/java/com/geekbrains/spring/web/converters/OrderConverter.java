@@ -5,12 +5,14 @@ import com.geekbrains.spring.web.dto.OrderItemDto;
 import com.geekbrains.spring.web.entities.Order;
 import com.geekbrains.spring.web.entities.OrderItem;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
+@Slf4j
 public class OrderConverter {
     private final OrderItemConverter orderItemConverter;
 
@@ -26,6 +28,7 @@ public class OrderConverter {
         out.setTotalPrice(order.getTotalPrice());
         out.setUsername(order.getUser().getUsername());
         out.setItems(order.getItems().stream().map(orderItemConverter::entityToDto).collect(Collectors.toList()));
+log.info("entityToDto");
         return out;
     }
 }
