@@ -22,6 +22,9 @@ public class Product {
     @Column(name = "title")
     private String title;
 
+    @Column(name = "category")
+    private String category;
+
     @Column(name = "price")
     private Integer price;
 
@@ -33,9 +36,10 @@ public class Product {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public Product(Long id, String title, Integer price) {
+    public Product(Long id, String title, String category, Integer price) {
         this.id = id;
         this.title = title;
+        this.category = category;
         this.price = price;
     }
 }
