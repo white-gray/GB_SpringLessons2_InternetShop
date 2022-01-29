@@ -37,7 +37,7 @@ public class Products {
     public List<ProductDto> getSlowGreetings() {
 //        String data = restTemplate.getForObject("http://slow-service/api/v1/slow?delay={delay}", String.class, "3");
 //        String data = restTemplate.getForObject("http://localhost:63641/api/v1/slow", String.class);
-        List<ProductDto> data = restTemplate.getForObject("http://product-service/api/v1/products", List.class);
+        List<ProductDto> data = restTemplate.getForObject("http://product-service/app/api/v1/products", List.class);
 //        List<ProductDto> data = restTemplate.getForObject("http://localhost:12345/api/v1/products", List.class);
         return data;
     }

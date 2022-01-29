@@ -44,7 +44,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-<!--        <dependency>-->
+        <dependency>
+            <groupId>com.flamexander</groupId>
+            <artifactId>cloud-common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--        <dependency>-->
 <!--            <groupId>com.flamexander</groupId>-->
 <!--            <artifactId>advanced-cloud-common</artifactId>-->
 <!--            <version>0.0.1-SNAPSHOT</version>-->
