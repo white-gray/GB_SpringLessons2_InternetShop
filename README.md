@@ -3,4 +3,4 @@
 Та же история с product-service
 
 При открытии страница http://product-service/api/v1/products прилетает List продукции
-WEB запустить пока не удалось
+WEB не запущен
