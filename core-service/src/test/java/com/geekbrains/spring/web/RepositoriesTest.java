@@ -1,5 +1,6 @@
 package com.geekbrains.spring.web;
 
+import com.geekbrains.spring.web.core.SpringWebApplication;
 import com.geekbrains.spring.web.core.entities.Product;
 import com.geekbrains.spring.web.core.repositories.ProductsRepository;
 import org.junit.jupiter.api.Assertions;
@@ -13,7 +14,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 import java.util.List;
 
-@SpringBootTest
+@SpringBootTest(classes = SpringWebApplication.class)
 @DataJpaTest
 @ActiveProfiles("test")
 public class RepositoriesTest {

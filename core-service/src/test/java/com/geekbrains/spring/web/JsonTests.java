@@ -1,13 +1,17 @@
 package com.geekbrains.spring.web;
 
+import com.geekbrains.spring.web.auth.WebAuthServiceApplication;
 import com.geekbrains.spring.web.auth.entities.Role;
+import com.geekbrains.spring.web.core.SpringWebApplication;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.json.JacksonTester;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@SpringBootTest(classes = WebAuthServiceApplication.class)
 @JsonTest
 public class JsonTests {
     @Autowired
