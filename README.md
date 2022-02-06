@@ -4,11 +4,11 @@
 
 Результаты:
 
-UserServiceTest.java  - Error creating bean with name 'com.geekbrains.spring.web.UserServiceTest': Unsatisfied dependency expressed through field 'userService';
+***UserServiceTest.java***  - Error creating bean with name 'com.geekbrains.spring.web.UserServiceTest': Unsatisfied dependency expressed through field 'userService';
 
-SpyTest.java  - Tests passed
+///SpyTest.java///  - Tests passed
 
-SpringWebApplicationTests.java  - Tests passed
+###SpringWebApplicationTests.java###  - Tests passed
 
 SecurityTest.java - Tests ignored. Прописано @SpringBootTest(classes = SpringWebApplication.class) , но  Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
 
