@@ -1,7 +1,6 @@
-package com.flamexander.book.store;
+package com.geekbrains.spring.web;
 
-import com.flamexander.book.store.entities.Role;
-import lombok.RequiredArgsConstructor;
+import com.geekbrains.spring.web.auth.entities.Role;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.json.JsonTest;

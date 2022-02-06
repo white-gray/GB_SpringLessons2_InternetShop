@@ -1,12 +1,9 @@
-package com.flamexander.book.store;
+package com.geekbrains.spring.web;
 
-import com.flamexander.book.store.dto.OrderItemDto;
-import com.flamexander.book.store.entities.Author;
-import com.flamexander.book.store.entities.Book;
-import com.flamexander.book.store.entities.Genre;
-import com.flamexander.book.store.services.BookService;
-import com.flamexander.book.store.services.CartService;
-import org.checkerframework.checker.units.qual.A;
+
+import com.geekbrains.spring.web.core.entities.Product;
+import com.geekbrains.spring.web.core.services.CartService;
+import com.geekbrains.spring.web.core.services.ProductsService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -16,19 +13,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Optional;
 
-@SpringBootTest
+@SpringBootTest(classes = CartService.class)
 public class CartTest {
     @Autowired
     private CartService cartService;
 
     @MockBean
-    private BookService bookService;
+    private ProductsService bookService;
 
     @BeforeEach
     public void initCart() {
@@ -37,19 +30,12 @@ public class CartTest {
 
     @Test
     public void addToCartTest() {
-        Book book = new Book();
-        book.setId(5L);
-        book.setTitle("X");
-        book.setPrice(BigDecimal.valueOf(100.0));
+        Product product = new Product();
+        product.setId(5L);
+        product.setTitle("X");
+        product.setPrice(Integer.valueOf(100));
 
-        Genre genre = new Genre();
-        genre.setTitle("X");
-        Author author = new Author();
-        author.setName("X");
-        book.setGenre(genre);
-        book.setAuthor(author);
-
-        Mockito.doReturn(Optional.of(book)).when(bookService).findById(5L);
+        Mockito.doReturn(Optional.of(product)).when(bookService).findById(5L);
         cartService.addToCart("test_cart", 5L);
         cartService.addToCart("test_cart", 5L);
         cartService.addToCart("test_cart", 5L);

@@ -1,21 +1,20 @@
-package com.flamexander.book.store;
+package com.geekbrains.spring.web;
 
-import com.flamexander.book.store.entities.User;
-import com.flamexander.book.store.repositories.UserRepository;
-import com.flamexander.book.store.services.BookService;
-import com.flamexander.book.store.services.UserService;
+import com.geekbrains.spring.web.auth.entities.User;
+import com.geekbrains.spring.web.auth.repositories.UserRepository;
+import com.geekbrains.spring.web.auth.services.UserService;
+import com.geekbrains.spring.web.core.SpringWebApplication;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.Mockito;
-import org.mockito.Spy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Optional;
 
-@SpringBootTest(classes = UserService.class)
+@SpringBootTest(classes = SpringWebApplication.class)
 public class UserServiceTest {
     @Autowired
     private UserService userService;

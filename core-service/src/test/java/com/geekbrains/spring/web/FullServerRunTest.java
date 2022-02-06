@@ -1,6 +1,7 @@
-package com.flamexander.book.store;
+package com.geekbrains.spring.web;
 
-import com.flamexander.book.store.entities.Genre;
+import com.geekbrains.spring.web.core.SpringWebApplication;
+import com.geekbrains.spring.web.core.entities.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -11,7 +12,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = SpringWebApplication.class)
 @ActiveProfiles("test")
 public class FullServerRunTest {
     @Autowired
@@ -20,8 +21,8 @@ public class FullServerRunTest {
     @Test
     public void fullRestTest() {
         // Spring page class ...
-        List<Genre> genres = restTemplate.getForObject("/api/v1/genres", List.class);
-        assertThat(genres).isNotNull();
-        assertThat(genres).isNotEmpty();
+        List<Product> products = restTemplate.getForObject("/api/v1/products", List.class);
+        assertThat(products).isNotNull();
+        assertThat(products).isNotEmpty();
     }
 }
