@@ -1,7 +1,7 @@
 # Что сделано
 
 ### в таблицу **_Product_** добавлена колонка _foldedToCartPerDay_
-For further reference, please consider the following sections:
+F
 
 * [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
 * [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.5.6/maven-plugin/reference/html/)
