@@ -1,0 +1,49 @@
+<div>
+    <p></p>
+    <h1>WEB MARKET</h1>
+    <br><br><br>
+    <p></p>
+    <p>
+    <blockquote>5 наиболее покупаемых продуктов за месяц
+        <blockquote class="col-6 col-md-2">
+            <table class="table table-hover">
+                <tr>
+                    <td>ID</td>
+                    <td>Название</td>
+                    <td>Цена</td>
+                    <td></td>
+                </tr>
+                <tbody>
+                <tr ng-repeat="p in ProductsPage.content">
+                    <td>{{p.id}}</td>
+                    <td>{{p.title}}</td>
+                    <td>{{p.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <p></p>
+        </blockquote>
+    </blockquote>
+    <br><br>
+    <blockquote>5 наиболее складываемых в корзину продуктов за день
+        <blockquote class="row-2 col-6 col-md-2">
+            <table class="table table-hover">
+                <tr>
+                    <td>ID</td>
+                    <td>Название</td>
+                    <td>Цена</td>
+                    <td></td>
+                </tr>
+                <tbody>
+                <tr ng-repeat="p in ProductsPage.content">
+                    <td>{{p.id}}</td>
+                    <td>{{p.title}}</td>
+                    <td>{{p.price}}</td>
+                </tr>
+                </tbody>
+            </table>
+            <p></p>
+        </blockquote>
+    </blockquote>
+    </p>
+</div>
