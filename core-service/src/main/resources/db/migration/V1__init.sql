@@ -5,6 +5,7 @@ create table products
     price      int,
     created_at timestamp default current_timestamp,
     updated_at timestamp default current_timestamp,
+    buyedForMounth varchar(255)
     foldedToCartPerDay varchar(255)
 );
 

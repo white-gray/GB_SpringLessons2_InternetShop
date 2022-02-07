@@ -32,6 +32,12 @@ public class Product {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
+    @Column(name = "foldedToCartPerDay")
+    private Integer foldedToCartPerDay;
+
+    @Column(name = "buyedForMounth")
+    private Integer buyedForMounth;
+
     public Product(Long id, String title, Integer price) {
         this.id = id;
         this.title = title;
