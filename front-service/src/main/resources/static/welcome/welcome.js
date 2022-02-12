@@ -1,12 +1,17 @@
 angular.module('market-front').controller('welcomeController', function ($scope, $http) {
-    const contextPath = 'http://localhost:5555/core/';
+    const contextPath = 'http://localhost:5555/recommendations/';
 
-    $scope.loadOrders = function () {
-        $http.get(contextPath + 'api/v1/orders')
+    $scope.MaxBuyed = function () {
+        $http.get(contextPath + 'api/v1/maxbuyed5')
             .then(function (response) {
-                $scope.MyOrders = response.data;
+                $scope.ProductsPageMaxBuyed = response.data;
             });
     }
 
-    $scope.loadOrders();
+    $scope.MaxHitCart = function () {
+        $http.get(contextPath + 'api/v1/maxhitcart5')
+            .then(function (response) {
+                $scope.ProductsPageMaxHitCart = response.data;
+            });
+    }
 });

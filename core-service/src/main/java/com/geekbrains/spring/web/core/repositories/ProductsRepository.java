@@ -11,9 +11,4 @@ import java.util.List;
 
 @Repository
 public interface ProductsRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
-    @Query("SELECT p FROM Product p ORDER BY p.buyedForMounth LIMIT 5")
-    List<Product> findBuyedForMounth();
-
-    @Query("SELECT p FROM Product p ORDER BY p.foldedToCartPerDay LIMIT 5")
-    List<Product> findFoldedToCartPerDay();
 }

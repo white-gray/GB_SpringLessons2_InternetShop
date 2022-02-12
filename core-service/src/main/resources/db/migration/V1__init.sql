@@ -4,9 +4,7 @@ create table products
     title      varchar(255),
     price      int,
     created_at timestamp default current_timestamp,
-    updated_at timestamp default current_timestamp,
-    buyedForMounth varchar(255)
-    foldedToCartPerDay varchar(255)
+    updated_at timestamp default current_timestamp
 );
 
 insert into products (title, price)

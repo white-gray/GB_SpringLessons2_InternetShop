@@ -1,6 +1,7 @@
-package com.geekbrains.spring.web.recommendations.integrations;
+package com.geekbrains.spring.web.core.integrations;
 
 import com.geekbrains.spring.web.api.core.ProductDto;
+import com.geekbrains.spring.web.core.entities.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -13,11 +14,12 @@ import java.util.Optional;
 public class ProductsServiceIntegration {
     private final RestTemplate restTemplate;
 
-    @Value("${integrations.core-service.url}")
-    private String productServiceUrl;
+    @Value("${integrations.recommendations-service.url}")
+    private String recommendationsUrl;
 
-    public Optional<ProductDto> findById(Long id) {
-        ProductDto productDto = restTemplate.getForObject(productServiceUrl + "/api/v1/products/" + id, ProductDto.class);
-        return Optional.ofNullable(productDto);
+    public void buyedForMounth(Product product) {
+        restTemplate.getForObject(recommendationsUrl + "/api/v1/recommendations/buyedForMounth/"+product, String.class);
     }
+
+
 }

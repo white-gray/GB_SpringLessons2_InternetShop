@@ -1,5 +1,6 @@
 package com.geekbrains.spring.web.core.controllers;
 
+import com.geekbrains.spring.web.api.core.OrderDto;
 import com.geekbrains.spring.web.api.exceptions.ResourceNotFoundException;
 import com.geekbrains.spring.web.core.converters.ProductConverter;
 import com.geekbrains.spring.web.api.core.ProductDto;
@@ -9,6 +10,9 @@ import com.geekbrains.spring.web.core.validators.ProductValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/products")
@@ -38,6 +42,7 @@ public class ProductsController {
         Product product = productsService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Product not found, id: " + id));
         return productConverter.entityToDto(product);
     }
+
 
     @PostMapping
     public ProductDto saveNewProduct(@RequestBody ProductDto productDto) {

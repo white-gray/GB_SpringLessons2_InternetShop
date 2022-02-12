@@ -24,3 +24,5 @@ spring:
 integrations:
   cart-service:
     url: http://localhost:5555/cart
+  recomendations-service:
+    url: http://localhost:5555/recommendations

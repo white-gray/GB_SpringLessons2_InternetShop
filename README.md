@@ -1,10 +1,8 @@
 # Что сделано
 
-* в таблицу **_Product_** добавлены колонки _foldedToCartPerDay_ и _buyedForMounth_
-* в модуле **_core-servuce_** в класс **repositories/ProductRepository** добавлены методы
-       _@Query("SELECT p FROM Product p ORDER BY p.buyedForMounth LIMIT 5")
-           List<Product> findBuyedForMounth();_
-       _@Query("SELECT p FROM Product p ORDER BY p.foldedToCartPerDay LIMIT 5")
-           List<Product> findFoldedToCartPerDay();_
-   
+изначально была мысль в таблицу продуктов в БД добавить колонки "foldedToCartPerDay" и "buyedForMounth"
+    Но потом увидел в Телеграм и а начале урока 9 (дальше пока не смотрел), что подобное не лучший вариант
+
+Тогда стал пробовать прописать, чтобы при добавлении товара в корзину, увеличивалось на 1 значение этого товара в модуле recommendations-service
+        Не удалось решить ошибку в модуле cart-service: "Could not resolve placeholder 'integrations.recommendations-service.url' in value "${integrations.recommendations-service.url}""
 

@@ -2,6 +2,7 @@ package com.geekbrains.spring.web.core.services;
 
 import com.geekbrains.spring.web.api.exceptions.ResourceNotFoundException;
 import com.geekbrains.spring.web.api.core.ProductDto;
+import com.geekbrains.spring.web.core.entities.Order;
 import com.geekbrains.spring.web.core.entities.Product;
 import com.geekbrains.spring.web.core.repositories.ProductsRepository;
 import com.geekbrains.spring.web.core.repositories.specifications.ProductsSpecifications;
@@ -12,6 +13,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service

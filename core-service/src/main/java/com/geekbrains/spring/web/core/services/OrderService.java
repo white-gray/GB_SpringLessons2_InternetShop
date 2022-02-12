@@ -6,6 +6,7 @@ import com.geekbrains.spring.web.api.core.OrderDetailsDto;
 import com.geekbrains.spring.web.core.entities.Order;
 import com.geekbrains.spring.web.core.entities.OrderItem;
 import com.geekbrains.spring.web.core.integrations.CartServiceIntegration;
+import com.geekbrains.spring.web.core.integrations.ProductsServiceIntegration;
 import com.geekbrains.spring.web.core.repositories.OrdersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,8 @@ public class OrderService {
     private final OrdersRepository ordersRepository;
     private final CartServiceIntegration cartServiceIntegration;
     private final ProductsService productsService;
+    private final ProductsServiceIntegration productsServiceIntegration;
+
 
     @Transactional
     public void createOrder(String username, OrderDetailsDto orderDetailsDto) {
@@ -37,6 +40,7 @@ public class OrderService {
                     item.setPricePerProduct(o.getPricePerProduct());
                     item.setPrice(o.getPrice());
                     item.setProduct(productsService.findById(o.getProductId()).orElseThrow(() -> new ResourceNotFoundException("Product not found")));
+                    productsServiceIntegration.buyedForMounth(item.getProduct());
                     return item;
                 }).collect(Collectors.toList());
         order.setItems(items);
