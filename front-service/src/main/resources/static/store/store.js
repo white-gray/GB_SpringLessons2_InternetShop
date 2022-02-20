@@ -17,6 +17,22 @@ angular.module('market-front').controller('storeController', function ($scope, $
         });
     };
 
+    $scope.clearSelect = function (pageIndex = 1) {
+        $http({
+            url: contextPath + 'api/v1/products',
+            method: 'GET',
+            params: {
+                p: pageIndex,
+                title_part: $scope.filter = null,
+                min_price: $scope.filter = null,
+                max_price: $scope.filter = null
+            }
+        }).then(function (response) {
+            $scope.ProductsPage = response.data;
+            $scope.paginationArray = $scope.generatePagesIndexes(1, $scope.ProductsPage.totalPages);
+        });
+    };
+
     $scope.generatePagesIndexes = function (startPage, endPage) {
         let arr = [];
         for (let i = startPage; i < endPage + 1; i++) {
