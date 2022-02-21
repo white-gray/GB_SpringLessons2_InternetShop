@@ -7,8 +7,12 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 
 @Tag(name = "Параметры WEB запросов")
 @ConstructorBinding
-@ConfigurationProperties(prefix = "integrations.cart-service")
+@ConfigurationProperties(prefix = "integrations.cart-service.templates")
 @Data
-public class CartServiceIntegrationProperties {
-    private String url;
+public class CartServiceIntegrationPropertiesTemplates {
+    private Integer connection;
+    private Integer read;
+    private Integer write;
+
+
 }

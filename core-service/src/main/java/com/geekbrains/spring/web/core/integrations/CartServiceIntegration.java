@@ -5,8 +5,14 @@ import com.geekbrains.spring.web.api.core.ProductDto;
 import com.geekbrains.spring.web.api.exceptions.AppError;
 import com.geekbrains.spring.web.api.exceptions.CartServiceAppError;
 import com.geekbrains.spring.web.core.exceptions.CartServiceIntegrationException;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -15,11 +21,21 @@ import reactor.core.publisher.Mono;
 
 import java.util.Optional;
 
+@Tag(name = "Корзина Пользователя", description = "Методы работы с корзинами Пользователей")
 @Component
 @RequiredArgsConstructor
 public class CartServiceIntegration {
     private final WebClient cartServiceWebClient;
 
+    @Operation(
+            summary = "Очистить корзину",
+            responses = {
+                    @ApiResponse(
+                            description = "Успешный ответ", responseCode = "200",
+                            content = @Content(schema = @Schema(implementation = Page.class))
+                    )
+            }
+    )
     public void clearUserCart(String username) {
         cartServiceWebClient.get()
                 .uri("/api/v1/cart/0/clear")
@@ -29,6 +45,15 @@ public class CartServiceIntegration {
                 .block();
     }
 
+    @Operation(
+            summary = "Получение корзины Пользоав",
+            responses = {
+                    @ApiResponse(
+                            description = "Успешный ответ", responseCode = "200",
+                            content = @Content(schema = @Schema(implementation = Page.class))
+                    )
+            }
+    )
     public CartDto getUserCart(String username) {
         CartDto cart = cartServiceWebClient.get()
                 .uri("/api/v1/cart/0")

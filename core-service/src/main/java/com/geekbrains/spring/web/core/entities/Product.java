@@ -1,5 +1,6 @@
 package com.geekbrains.spring.web.core.entities;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -9,6 +10,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Tag(name = "Продукты в БД", description = "Методы работы с продуктами в БД")
 @Entity
 @Table(name = "products")
 @Data

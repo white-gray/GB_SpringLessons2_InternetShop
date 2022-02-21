@@ -1,5 +1,6 @@
 package com.geekbrains.spring.web.core.entities;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,6 +11,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Tag(name = "Заказы в БД", description = "Методы работы с заказами в БД")
 @Entity
 @Table(name = "order_items")
 @Data

@@ -7,6 +7,8 @@ import com.geekbrains.spring.web.core.entities.Order;
 import com.geekbrains.spring.web.core.entities.OrderItem;
 import com.geekbrains.spring.web.core.integrations.CartServiceIntegration;
 import com.geekbrains.spring.web.core.repositories.OrdersRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Tag(name = "Сервисы работы с БД для заказов", description = "Методы сервисов с заказами")
 @Service
 @RequiredArgsConstructor
 public class OrderService {
@@ -21,6 +24,9 @@ public class OrderService {
     private final CartServiceIntegration cartServiceIntegration;
     private final ProductsService productsService;
 
+    @Operation(
+            summary = "Создание заказа у Пользователя"
+    )
     @Transactional
     public void createOrder(String username, OrderDetailsDto orderDetailsDto) {
         CartDto currentCart = cartServiceIntegration.getUserCart(username);
@@ -44,6 +50,10 @@ public class OrderService {
         cartServiceIntegration.clearUserCart(username);
     }
 
+
+    @Operation(
+            summary = "Вывод заказа у Пользователя"
+    )
     public List<Order> findOrdersByUsername(String username) {
         return ordersRepository.findAllByUsername(username);
     }
