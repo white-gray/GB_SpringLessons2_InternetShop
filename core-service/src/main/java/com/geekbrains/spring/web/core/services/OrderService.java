@@ -30,6 +30,7 @@ public class OrderService {
         order.setPhone(orderDetailsDto.getPhone());
         order.setUsername(username);
         order.setTotalPrice(currentCart.getTotalPrice());
+        order.setStatus(0);
         List<OrderItem> items = currentCart.getItems().stream()
                 .map(o -> {
                     OrderItem item = new OrderItem();

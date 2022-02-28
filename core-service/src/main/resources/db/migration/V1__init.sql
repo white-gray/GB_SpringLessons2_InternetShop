@@ -27,6 +27,7 @@ create table orders
     total_price numeric(8, 2)  not null,
     address     varchar(255),
     phone       varchar(255),
+    status      numeric (1, 0),
     created_at  timestamp default current_timestamp,
     updated_at  timestamp default current_timestamp
 );
@@ -43,8 +44,8 @@ create table order_items
     updated_at        timestamp default current_timestamp
 );
 
-insert into orders (username, total_price, address, phone)
-values ('bob', 200.00, 'address', '12345');
+insert into orders (username, total_price, address, phone, status)
+values ('bob', 200.00, 'address', '12345', 0);
 
 insert into order_items (product_id, order_id, quantity, price_per_product, price)
 values (1, 1, 2, 100.00, 200.00);

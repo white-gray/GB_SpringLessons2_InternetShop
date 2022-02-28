@@ -2,6 +2,7 @@ package com.geekbrains.spring.web.cart.models;
 
 import com.geekbrains.spring.web.api.core.ProductDto;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -10,7 +11,9 @@ import java.util.List;
 
 @Data
 public class Cart {
+    @Autowired
     private List<CartItem> items;
+    @Autowired
     private BigDecimal totalPrice;
 
     public Cart() {

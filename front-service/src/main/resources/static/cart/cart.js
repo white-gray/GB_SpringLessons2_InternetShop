@@ -22,6 +22,10 @@ angular.module('market-front').controller('cartController', function ($scope, $h
     }
 
     $scope.checkOut = function () {
+        if (orderDetails.phone != "\+7\(\d{3}\) \d{3}-\d{3}7" | orderDetails.address != "\d{6}, \w+, \w+, \w+, \w+, \d+, \d+, \d+") {
+        alert("Неверно введены требуемые данные!");
+        return false;
+        }
         $http({
             url: 'http://localhost:5555/core/api/v1/orders',
             method: 'POST',

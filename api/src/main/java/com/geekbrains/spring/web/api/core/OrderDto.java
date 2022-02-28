@@ -10,6 +10,7 @@ public class OrderDto {
     private BigDecimal totalPrice;
     private String address;
     private String phone;
+    private int status;
 
     public Long getId() {
         return id;
@@ -25,6 +26,10 @@ public class OrderDto {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public List<OrderItemDto> getItems() {

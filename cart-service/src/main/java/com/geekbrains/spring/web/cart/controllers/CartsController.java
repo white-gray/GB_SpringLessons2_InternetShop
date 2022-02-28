@@ -7,13 +7,16 @@ import com.geekbrains.spring.web.cart.exceptions.CartIsBrokenException;
 import com.geekbrains.spring.web.cart.models.Cart;
 import com.geekbrains.spring.web.cart.services.CartService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/cart")
 @RequiredArgsConstructor
 public class CartsController {
+    @Autowired
     private final CartService cartService;
+    @Autowired
     private final CartConverter cartConverter;
 
     @GetMapping("/{uuid}")

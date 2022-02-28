@@ -7,6 +7,7 @@ import com.geekbrains.spring.web.api.exceptions.ResourceNotFoundException;
 import com.geekbrains.spring.web.cart.integrations.ProductsServiceIntegration;
 import com.geekbrains.spring.web.cart.models.Cart;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,9 @@ import java.util.function.Consumer;
 @Service
 @RequiredArgsConstructor
 public class CartService {
+    @Autowired
     private final ProductsServiceIntegration productsServiceIntegration;
+    @Autowired
     private final RedisTemplate<String, Object> redisTemplate;
 
     @Value("${utils.cart.prefix}")

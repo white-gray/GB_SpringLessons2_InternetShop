@@ -28,6 +28,7 @@ public class PayPalService {
                 .shippingPreference("SET_PROVIDED_ADDRESS");
         orderRequest.applicationContext(applicationContext);
 
+        String[] address = order.getAddress().split(", ");
         List<PurchaseUnitRequest> purchaseUnitRequests = new ArrayList<>();
         PurchaseUnitRequest purchaseUnitRequest = new PurchaseUnitRequest()
                 .referenceId(orderId.toString())
@@ -41,8 +42,8 @@ public class PayPalService {
                                 .quantity(String.valueOf(orderItem.getQuantity())))
                         .collect(Collectors.toList()))
                 .shippingDetail(new ShippingDetail().name(new Name().fullName(order.getUsername()))
-                        .addressPortable(new AddressPortable().addressLine1("123 Townsend St").addressLine2("Floor 6")
-                                .adminArea2("San Francisco").adminArea1("CA").postalCode("94107").countryCode("US")));
+                        .addressPortable(new AddressPortable().addressLine1(address[5]+" "+address[4]).addressLine2(address[6])
+                                .adminArea2(address[3]).adminArea1(address[2]).postalCode(address[0]).countryCode(address[1])));
         purchaseUnitRequests.add(purchaseUnitRequest);
         orderRequest.purchaseUnits(purchaseUnitRequests);
         return orderRequest;

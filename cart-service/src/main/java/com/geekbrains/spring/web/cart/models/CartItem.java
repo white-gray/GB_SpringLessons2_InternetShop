@@ -4,6 +4,7 @@ import com.geekbrains.spring.web.api.core.ProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.math.BigDecimal;
 
@@ -11,10 +12,15 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CartItem {
+    @Autowired
     private Long productId;
+    @Autowired
     private String productTitle;
+    @Autowired
     private int quantity;
+    @Autowired
     private BigDecimal pricePerProduct;
+    @Autowired
     private BigDecimal price;
 
     public CartItem(ProductDto productDto) {
